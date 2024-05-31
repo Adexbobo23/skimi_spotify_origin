@@ -8,7 +8,7 @@ import SiderMenu from '../../components/siderMenu/siderMenu';
 import TrackCover from '../../components/trackCover/trackCover';
 import NewPlaylist from './components/newplaylist';
 
-import './leftSection.css';
+import '../leftSection/leftSection.css';
 
 class LeftSection extends Component {
   render() {
