@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './spinner.css';
+import '../spinner/spinner.css';
 
 const Spinner = props => (
   <div className={`spinner-container ${props.section ? 'section' : ''}`}>
