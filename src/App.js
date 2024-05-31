@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import '../src/styles/App.css';
-
 import { setToken } from './store/actions/sessionActions';
 import { fetchUser } from './store/actions/userActions';
 
@@ -52,14 +50,16 @@ class App extends Component {
     };
 
     return (
-      <div className='app'>
-        <WebPlaybackReact {...webPlaybackSdkProps}>
-          <Spinner loading={!this.state.playerLoaded}>
-            <LeftSection />
-            <MainSection />
-            <RightSection />
-          </Spinner>
-        </WebPlaybackReact>
+      <div style={styles.body}>
+        <div className='app' style={styles.app}>
+          <WebPlaybackReact {...webPlaybackSdkProps}>
+            <Spinner loading={!this.state.playerLoaded}>
+              <LeftSection />
+              <MainSection />
+              <RightSection />
+            </Spinner>
+          </WebPlaybackReact>
+        </div>
       </div>
     );
   }
@@ -77,3 +77,44 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+const styles = {
+  body: {
+    background: '#181818',
+    fontFamily: 'Proxima Nova, Georgia, sans-serif',
+    color: 'white',
+    margin: 0,
+    padding: 0,
+    cursor: 'default',
+  },
+  app: {
+    display: 'flex',
+    position: 'relative',
+  },
+  mainSection: {
+    position: 'relative',
+    margin: 'auto',
+    marginBottom: '100px',
+  },
+  mainSectionContainer: {
+    position: 'relative',
+    top: '50px',
+    paddingBottom: '50px',
+  },
+  '@media (max-width: 1100px)': {
+    mainSection: {
+      paddingLeft: '200px',
+    },
+    rightSection: {
+      display: 'none',
+    },
+  },
+  '@media (max-width: 700px)': {
+    mainSection: {
+      paddingLeft: '0px',
+    },
+    leftSection: {
+      display: 'none',
+    },
+  },
+};
